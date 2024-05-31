@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Animation</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .galaxy {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.8), #000);
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes moveStars {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-2000px);
+            }
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 2000px;
+            background: transparent;
+            animation: moveStars 50s linear infinite;
+        }
+
+        /* Generate multiple stars */
+        .stars::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2000px;
+            background: transparent;
+            animation: moveStars 50s linear infinite;
+        }
+
+        /* Create multiple stars */
+        .stars::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2000px;
+            background: transparent;
+            animation: moveStars 50s linear infinite;
+        }
+
+        .stars::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2000px;
+            background: transparent;
+            animation: moveStars 50s linear infinite;
+        }
+
+        /* Add stars dynamically */
+        .galaxy .stars {
+            animation-delay: -25s;
+        }
+
+        .galaxy .stars::after {
+            animation-delay: -50s;
+        }
+
+        .galaxy .stars::before {
+            animation-delay: -75s;
+        }
+
+        /* Generate stars using CSS */
+        .galaxy .stars {
+            background: transparent;
+            box-shadow: 
+                1000px 200px 0 white, 400px 700px 0 white, 900px 900px 0 white, 800px 300px 0 white, 600px 800px 0 white,
+                300px 600px 0 white, 500px 500px 0 white, 200px 400px 0 white, 400px 200px 0 white, 100px 100px 0 white,
+                700px 700px 0 white, 600px 400px 0 white, 500px 300px 0 white, 400px 100px 0 white, 300px 800px 0 white,
+                200px 900px 0 white, 100px 600px 0 white, 800px 500px 0 white, 900px 300px 0 white, 1000px 100px 0 white;
+        }
+    </style>
+</head>
+<body>
+    <div class="galaxy">
+        <div class="stars"></div>
+    </div>
+</body>
+</html>
